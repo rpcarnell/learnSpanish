@@ -3,7 +3,7 @@
 
 #added by eric and corky 2 lines
 RewriteEngine on
-   RewriteBase /bookingandbilling-save/
+   RewriteBase /bookingandbilling/
 
    RewriteCond %{REQUEST_URI} ^/system.*
 RewriteRule ^(.*)$ index.php?/$1 [L]

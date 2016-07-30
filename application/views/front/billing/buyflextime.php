@@ -8,7 +8,7 @@
        <br /><form method="post" onSubmit='return checkMinQuant()'><?php
 if (isset($tutor))
 { 
-		echo "<div class='teacher-box'>";
+		echo "<div class='teacher-box'>";   // sends the css definition "class" is the tipoff  corky
                  echo "<img class='tutorpic' src='".base_url()."uploads/tutors/".$tutor->photo."' style='float: left; margin: 5px; height: 150px;' />";
 		//echo "<div style='float: right; margin: 30px 0x;'><a href='".base_url()."tutors/apply/".$tutor->tutor_ID."'>Apply</a><br /><a href='javascript:void(0)' onClick='showOpenings()'>View Openings</a></div>";
 		echo "<div><p>Teacher Name: <b>".ucwords($tutor->name)."</b></p></div>";
@@ -18,7 +18,7 @@ if (isset($tutor))
            <a target='_blank' href='<?php echo base_url()."calendar/tutorSchedule/".$tutor->tutor_ID;?>' style="text-decoration: none;">View Openings</a>
            <?php
                         
-                        echo "<div style='clear: both;'></div>";
+                        echo "<div style='clear: both;'></div>";  // probably spacing?
                
 		echo "</div><div style='clear: both; margin-bottom: 0px;'></div>";
 	

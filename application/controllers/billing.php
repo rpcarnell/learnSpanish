@@ -34,6 +34,7 @@ class Billing extends SP_Controller
              return $money;
           } // numeric
     } // formatMoney41
+
     public function history()
     {
         $this->Fn_model->ch_login();
@@ -56,9 +57,10 @@ class Billing extends SP_Controller
         $data['breadcrumbs'] = $breadcrumbs;
         $data['userMessage'] = $userMessage;
         $data['order'] = (isset($_GET['order']) && is_numeric($_GET['order']) && $_GET['order'] < 2) ? $_GET['order'] : 0; 
-        $data['main_content'] = 'front/billhistr';
+        $data['main_content'] = 'front/billhistr';   // somehow this calls billhistr.php  - corky
         $this->load->view('front/includes/main_view', $data);
     }
+
     public function buyTime()
     {
         $this->Fn_model->ch_login();

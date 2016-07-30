@@ -4,7 +4,7 @@
      <ul >
         
        <li><a href="<?php echo base_url() ?>contact_us">Contact us</a></li>
-	<li><a href="<?php echo base_url() ?>privacy_policy">Privacy Policy</a></li>
+	<!--<li><a href="<?php echo base_url() ?>privacy_policy">Privacy Policy</a></li>   removed by corky-->  
 	<!--<li><a href="<?php echo base_url('terms_and_condition') ?>">Terms and conditions</a></li>-->
 	<li ><a href="">Home</a></li>
     </ul>

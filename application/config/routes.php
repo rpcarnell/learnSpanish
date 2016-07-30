@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "home";
+$route['default_controller'] = "signup_login";  // thise used to be "home"   corky and eric
 $route['404_override'] = '';
 
 $route['media'] = 'media/media_fn';

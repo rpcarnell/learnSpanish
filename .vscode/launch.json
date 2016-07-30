@@ -11,7 +11,7 @@
             "stopOnEntry": false,
             "args": [],
             //"cwd": "C:/Users/corky/Documents/Booking Source Code/rpcarnell/",
-            "cwd": "C:/Ampps/www/BookingAndBilling/index.php",
+            "cwd": "C:/Ampps/www/BookingAndBilling/",
             "preLaunchTask": null,
             "runtimeExecutable": null,
             "runtimeArgs": [

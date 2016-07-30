@@ -30,6 +30,7 @@ class Home extends SP_Controller
     public function privacy_policy(){
         $globals = $this->Fn_model->getGlobals();
         $data['page_title'] = $globals->{'store-name'}.' | Terms &amp; Conditions';
+        //$globals->{'PrivacyStatement'}  corky
         $data['main_content'] = 'front/privacy_view';
         $this->load->view('front/includes/main_view',$data);
     }
