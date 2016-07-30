@@ -1,0 +1,39 @@
+@charset 'utf-8';
+/* CSS DOCUMENT */
+/*********
+	Page Template
+*********/
+#main-container {  height:100%; height: auto !important; min-height:100%; }
+
+#header-wrapper { }
+
+#main-wrapper {}
+
+#footer-wrapper { display:none; }
+
+
+/*********
+	END Page Template
+*********/
+
+/** Login **/
+
+#main-container2{ background:url(../images_front/home/home_bg.png) no-repeat center top; width:1024px; height:887px; margin:0 auto; padding-top:70px;}
+/*#main-wrapper2{ background:url(../images_front/page_template/bg.jpg); margin: 0 auto; width:482px; height:434px;}*/
+.error { color: red !important; font-style: italic; font-size: 12px; margin-top:6px;}
+.logo{ width:215px; height:146px; margin:0 auto; padding-top:70px;}
+.login-form{ font-size:14px; width:353px; margin:0 auto; padding:50px; background: rgba(0,0,0,0.5); border-radius: 5px; -webkit-border-radius:5px; -moz-border-radius:5px; -o-border-radius: 5px; border: 1px solid #0A0A0A;}
+.l-label { color:#fff; text-shadow: 1px 1px 1px #000 !important; font-family: calibri;}
+.l-inp-txt input{ width:352px; height:22px; outline: none; margin-bottom:5px;padding: 3px;}
+.l-inp-txt input:focus { outline: 1px solid #F3BC16; margin-bottom:5px;padding: 3px;}
+.l-inp-sub{ width:150px; height:30px; border: 1px solid #C2940A; background: #BA7200; color: white; transition: all 0.3s linear; -webkit-transition: all 0.3s linear;}
+.l-inp-sub:hover { border: 1px solid #F3BC16; color: #F3BC16; background: #4E3B04;}
+.l-links a {color:black; font-size:12px; text-decoration:underline;}
+.l-links, .l-inp-s{ margin-top:13px;}
+#footer-wrapper2{ text-align:center; color:#F3BC16; margin-top:5px;}
+
+
+/** End Login **/
+
+
+body { margin: 0; padding: 0; background: url('../images_front/page_template/vector.jpg'); background-attachment: fixed; background-size: fixed; 

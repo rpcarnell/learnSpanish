@@ -1,0 +1,33 @@
+@charset 'utf-8';
+/* CSS DOCUMENT */
+/*********
+	Page Template
+*********/
+body { margin:0; padding:0; height:100%; font-family: 'Arial'; font-size: 12px; line-height: 1.231; background:url(../images_front/page_template/bg.jpg); }
+#main-container {  height:100%; height: auto !important; min-height:100%; }
+
+#header-wrapper { }
+
+#main-wrapper {}
+
+#footer-wrapper { display:none; }
+
+
+/*********
+	END Page Template
+*********/
+
+/******Login********/
+
+#main-container2{ background:url(../images_front/page_template/bg.jpg); width:1024px; height:887px; margin:0 auto; padding-top:70px;}
+#main-wrapper2{ background:url(../images_front/page_template/bg.jpg); margin: 0 auto; width:482px; height:434px;}
+.logo{ width:215px; height:146px; margin:0 auto; padding-top:70px;}
+.login-form{ font-size:14px; width:353px; margin:0 auto; padding-top:10px;}
+.l-label { color:black; font-family: calibri;}
+.l-inp-txt input{ width:352px; height:22px; border: 1px solid #f7c1d9; margin-bottom:5px;padding: 3px;}
+.l-inp-sub{ width:150px; height:30px; border: 1px solid gray;}
+.l-links a {color:black; font-size:12px; text-decoration:underline;}
+.l-links, .l-inp-s{ margin-top:13px;}
+#footer-wrapper2{ text-align:center; color:#dd5692; margin-top:5px;}
+
+

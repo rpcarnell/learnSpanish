@@ -1,0 +1,40 @@
+/*/* CSS Document */
+td
+{
+    color: #444;
+}
+.vtop {
+	 vertical-align:top !important;	
+	}
+/*
+.clsBoldFont td{
+	font-weight:bold;
+	/font-size:12px !important;
+	}*/
+ a{
+  color: #139;
+ }
+.dt{
+   
+  color: #555;
+  /*color: #fff;*/
+  background: #fff;/*rgb(186, 220, 255);/*rgb(111, 173, 236);/*#f0f0f0;*/
+ /* background: #f4fff4;/*#5494be;*/
+  /*background: #def;*/
+  font-weight: bold;
+  padding: 5px;
+  
+ 
+  border-bottom: 1px solid #ddd;
+ }
+  
+ .dt a{
+     color: #468;/*#e0f0ff;*/
+     text-decoration: underline;
+ }
+  .dtb{
+  background-color: #86B5FF;
+  color: #f00;
+  font-weight: bold;
+  padding-left: 4px;
+ }

@@ -1,0 +1,21 @@
+# Use PHP5CGI as default
+<IfModule mod_rewrite.c>
+
+#added by eric and corky 2 lines
+RewriteEngine on
+   RewriteBase /bookingandbilling-save/
+
+   RewriteCond %{REQUEST_URI} ^/system.*
+RewriteRule ^(.*)$ index.php?/$1 [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ index.php?/$1 [L]
+ErrorDocument 404 index.php
+	
+	
+</IfModule>
+<IfModule mod_php5.c>
+php_value upload_max_filesize 8M
+</IfModule>
+
+

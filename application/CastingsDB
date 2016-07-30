@@ -1,0 +1,92 @@
+ALTER TABLE  `casting_roles` CHANGE  `amount`  `age` VARCHAR( 15 ) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL ;
+//************************* we don't need amount in the casting_roles table. We need age. That's why I made this change
+ALTER TABLE  `castings` ADD  `auditsubmit` BOOLEAN NULL DEFAULT FALSE AFTER  `instructions` ;
+//table castings needed this new field
+
+
+CREATE TABLE IF NOT EXISTS `castings` (
+  `id` int(13) NOT NULL AUTO_INCREMENT,
+  `title` varchar(500) NOT NULL,
+  `company_name` varchar(500) NOT NULL,
+  `city` varchar(250) NOT NULL,
+  `state` int(8) NOT NULL,
+  `country` int(4) NOT NULL,
+  `instructions` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `casting_dates`
+--
+
+CREATE TABLE IF NOT EXISTS `casting_dates` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `casting_id` int(11) NOT NULL,
+  `location_id` int(11) NOT NULL,
+  `theDate` varchar(200) NOT NULL,
+  `starttime` varchar(20) DEFAULT NULL,
+  `endtime` varchar(20) DEFAULT NULL,
+  `specifictime` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `casting_locations`
+--
+
+CREATE TABLE IF NOT EXISTS `casting_locations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `casting_id` int(11) NOT NULL,
+  `audition_type` tinyint(1) NOT NULL,
+  `location` text NOT NULL,
+  `city` varchar(200) DEFAULT NULL,
+  `state` varchar(200) DEFAULT NULL,
+  `country` int(5) DEFAULT NULL,
+  `zipcode` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `casting_roles`
+--
+
+CREATE TABLE IF NOT EXISTS `casting_roles` (
+  `id` int(13) NOT NULL AUTO_INCREMENT,
+  `casting_id` int(13) NOT NULL,
+  `lookingfor` tinyint(1) NOT NULL,
+  `role` varchar(500) NOT NULL,
+  `gender` tinyint(1) NOT NULL,
+  `amount` varchar(15) NOT NULL,
+  `ethnicities` varchar(30) NOT NULL,
+  `headshot` tinyint(1) NOT NULL DEFAULT '0',
+  `videodemo` tinyint(1) NOT NULL DEFAULT '0',
+  `audiodemo` tinyint(1) NOT NULL DEFAULT '0',
+  `roledescription` text,
+  `photoorpdf` varchar(400) DEFAULT NULL,
+  `videolink` varchar(300) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `casting_submissions`
+--
+
+CREATE TABLE IF NOT EXISTS `casting_submissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `casting_id` int(11) NOT NULL,
+  `worldwide` tinyint(1) NOT NULL DEFAULT '0',
+  `instructions` text,
+  `notify_email` varchar(100) NOT NULL,
+  `instate_only` tinyint(1) NOT NULL DEFAULT '0',
+  `notify_opt` tinyint(2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `casting_id` (`casting_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

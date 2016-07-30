@@ -1,0 +1,60 @@
+CREATE TABLE IF NOT EXISTS `casting_locations` (
+  `id` int(11) NOT NULL,
+  `casting_id` int(11) NOT NULL,
+  `location` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `castings` (
+  `id` int(13) NOT NULL AUTO_INCREMENT,
+  `title` varchar(500) NOT NULL,
+  `company_name` varchar(500) NOT NULL,
+  `city` varchar(250) NOT NULL,
+  `state` int(8) NOT NULL,
+  `country` int(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+ALTER TABLE  `castings` ADD  `instructions` TEXT NULL AFTER  `country` ;
+
+
+##################
+UPDATE `shimmydb`.`pages` SET `page_content` = '<h4 class="orange">To become a member of Professional101spanish.com we require the following:</h4>
+<ol><li><p>A Personal recommendation from a current member</p><p style="margin-top: 10px;">Or</p></li><!--<li>
+<p>At least three references (name/title and contact information) that can confirm that the dancer has been performing as a professional for at least 2 years and conducts themselves according to the 101 Dancer&rsquo;s Pledge.</p>
+</li>--><li><p> Audio/video	
+  demo	
+  via	
+  Youtube,	
+  Vimeo,	
+  other	
+  audio/video	
+  sites,	
+  e-­mail,	
+  or	
+  links</p></li><li>
+<p>If your application is accepted, your annual membership fee will be $50.00.</p></li></ol>' WHERE `pages`.`page_id` = 113;
+
+CREATE TABLE IF NOT EXISTS `reco_musician` (
+  `reco_id` int(11) NOT NULL AUTO_INCREMENT,
+  `musician_id` varchar(50) NOT NULL,
+  `reco_name` varchar(100) DEFAULT NULL,
+  `location` text,
+  `skills` text,
+  `email` varchar(100) DEFAULT NULL,
+  `sample_perf` text,
+  `active_since` varchar(100) DEFAULT NULL,
+  `recommender` text NOT NULL,
+  `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`reco_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+CREATE TABLE IF NOT EXISTS `compos_cre` (
+  `chor_cre_id` int(11) NOT NULL AUTO_INCREMENT,
+  `dancer_id` varchar(50) NOT NULL,
+  `employer` varchar(200) NOT NULL,
+  `location` text NOT NULL,
+  `date` varchar(100) NOT NULL,
+  `composition` varchar(200) NOT NULL,
+  `styles` text NOT NULL,
+  PRIMARY KEY (`chor_cre_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

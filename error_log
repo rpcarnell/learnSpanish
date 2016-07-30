@@ -1,0 +1,22 @@
+[24-Jul-2015 11:32:44 UTC] PHP Fatal error:  Call to undefined method Tutors_model::getTutor() in /home/corkypeavy/public_html/rpcarnell/application/controllers/tutors.php on line 24
+[25-Aug-2015 14:28:27 UTC] PHP Fatal error:  Call to undefined method Customers_model::getCalendarEntry() in /home/corkypeavy/public_html/rpcarnell/application/views/front/managSubscr.php on line 17
+[29-Sep-2015 20:59:13 America/Managua] PHP Fatal error:  Call to undefined function jencode() in /home/corkypeavy/public_html/rpcarnell/application/controllers/billing.php on line 179
+[29-Sep-2015 20:59:16 America/Managua] PHP Fatal error:  Call to undefined function jencode() in /home/corkypeavy/public_html/rpcarnell/application/controllers/billing.php on line 179
+[29-Sep-2015 20:59:30 America/Managua] PHP Fatal error:  Call to undefined function jencode() in /home/corkypeavy/public_html/rpcarnell/application/controllers/billing.php on line 179
+[01-Dec-2015 07:02:21 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/corkypeavy/public_html/rpcarnell/application/libraries/image_moo.php on line 416
+[01-Dec-2015 07:02:47 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/corkypeavy/public_html/rpcarnell/application/libraries/image_moo.php on line 416
+[01-Dec-2015 21:47:53 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/corkypeavy/public_html/rpcarnell/application/libraries/image_moo.php on line 416
+[03-Dec-2015 06:45:26 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/corkypeavy/public_html/rpcarnell/application/libraries/image_moo.php on line 416
+[03-Dec-2015 06:49:29 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/corkypeavy/public_html/rpcarnell/application/libraries/image_moo.php on line 416
+[03-Dec-2015 06:56:06 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/corkypeavy/public_html/rpcarnell/application/libraries/image_moo.php on line 416
+[03-Dec-2015 06:56:49 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/corkypeavy/public_html/rpcarnell/application/libraries/image_moo.php on line 416
+[17-Jan-2016 11:11:14 UTC] PHP Fatal error:  Call to undefined function print_() in /home/corkypeavy/public_html/rpcarnell/application/controllers/signup_login.php on line 33
+[03-Feb-2016 22:31:57 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/corkypeavy/public_html/rpcarnell/application/models/tutors_model.php on line 132
+[03-Feb-2016 19:07:28 America/Antigua] PHP Fatal error:  Call to undefined method stdClass::getTutor() in /home/corkypeavy/public_html/rpcarnell/application/views/front/calendar/calendar.php on line 298
+[02-Mar-2016 10:06:26 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/corkypeavy/public_html/rpcarnell/application/libraries/getid3/getid3.lib.php on line 788
+[02-Mar-2016 10:06:29 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/corkypeavy/public_html/rpcarnell/application/libraries/getid3/getid3.lib.php on line 788
+[02-Mar-2016 10:06:30 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/corkypeavy/public_html/rpcarnell/application/libraries/getid3/getid3.lib.php on line 788
+[02-Mar-2016 10:06:41 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/corkypeavy/public_html/rpcarnell/application/libraries/getid3/getid3.lib.php on line 788
+[02-Mar-2016 10:06:49 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/corkypeavy/public_html/rpcarnell/application/libraries/getid3/getid3.lib.php on line 788
+[26-May-2016 18:35:46 Asia/Shanghai] PHP Fatal error:  Call to undefined method Tutors_model::getTutorPhoto() in /home/corkypeavy/public_html/rpcarnell/application/controllers/calendar.php on line 77
+[26-May-2016 18:35:53 Asia/Shanghai] PHP Fatal error:  Call to undefined method Tutors_model::getTutorPhoto() in /home/corkypeavy/public_html/rpcarnell/application/controllers/calendar.php on line 77
