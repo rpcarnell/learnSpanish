@@ -75,7 +75,7 @@
                         $time_passed = ceil($time_passed / $day);
                         if ($time_passed > 0)//if the time is in the future, time_passed will be 0 or less
                         {
-                            if ((int)$time_passed > (int)$globals->{'max-pause-days'})
+                            if ((int)$time_passed > (int)$globals->{'max-pause-days'})//it has been paused for too long, so let's get rid of it
                             {
                                 $query = "DELETE FROM calendarEntries WHERE type= 2 AND  inven_id= '".$row->{'recurring-Profile-ID'}."'";
                                 $this->db->query($query);
