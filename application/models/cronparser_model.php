@@ -1,21 +1,5 @@
 <?php
-/*
- * Mick Sear, eCreate, May 2005
- * http://www.ecreate.co.uk
- * License: GPL
- * Version: 1.1
- */
-
- 
- /*$cron  = "15,33,48 1-10 * * *";
- $cp = new CronParser($cron);
- echo "Cron $cron last ran on:";
- 
- echo nl2br($cp->getDebug());*/
-
-
- 
- class Cronparser_model extends CI_Model {
+class Cronparser_model extends CI_Model {
  	
  	var $bits = Array(); //exploded String like 0 1 * * *
  	var $now= Array();	//Array of cron-style entries for time()
@@ -103,7 +87,7 @@
         private function _warnUserChange($row)
         {
             if ($row->updater == 2) { $this->_calWarnStud($row->customer_ID, $row->tutor_ID,  $row);  }
-            elseif ($row->updater == 3)
+            elseif ($row->updater == 3)//Okay, who made the update? User, administrator, tutor?
             {
                 $this->_calWarnTutor($row->tutor_ID, $row->customer_ID, $row, true);
                 $this->_calWarnStud($row->customer_ID, $row->tutor_ID, $row, true);
