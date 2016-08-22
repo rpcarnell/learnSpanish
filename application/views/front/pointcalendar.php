@@ -2,7 +2,7 @@
 
 ?><div class="spanish">
     <div class="spanish-content profile">
-        <?php echo $breadcrumbs; ?><br /><br /><br />
+        <?php //echo $breadcrumbs; ?>
 
 <div style="margin-top: 40px;">
     <?php 
