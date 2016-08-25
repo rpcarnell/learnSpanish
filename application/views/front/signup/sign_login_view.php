@@ -18,9 +18,9 @@ $this->Fn_model->ch_login1();
                     <?php echo $err_log ?>
                     <div class='authform' >
                     <form method="post">
-                        <ul class="signup-table">
-                            <li>
-                                <div>E-Mail:<br /><input type="text" name="email" value="<?php echo $this->input->post('email') ?>"/></div>
+                        <ul class="signup-table" style="padding-left: 0px;">
+                            <li >
+                                <div >E-Mail:<br /><input type="text" name="email" value="<?php echo $this->input->post('email') ?>"/></div>
                             </li>
                             <li>Password:<br /><input id="password-password" type="password" name="pwd" value="" autocomplete="off"/>
                                 
