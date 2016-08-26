@@ -60,13 +60,11 @@ class Customers_model extends CI_Model{
           return $queryResult[0];
 
           if($this->db->query($queryStr)->num_rows() > 0)
-          //if($queryResult->num_rows() > 0)
           {
              foreach($this->db->query($queryStr)->result() as $row) { $data[] = $row; } 
-             //foreach($queryResult as $row) { $data[] = $row; }
           }
           else
-          {
+          {   // this is the expected normal case
               $data = $queryResult;
           }
           return (isset($data)) ? $data : false;          
