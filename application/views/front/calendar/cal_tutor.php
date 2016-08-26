@@ -140,8 +140,7 @@ $type = 1;
 <?php
     if ($error) { echo "<br /><br /><div style='color: #a00; margin-top: 5px;' class='spanish-form'>".$error."</div>"; }
     ?>
-      <br /><br /><div class="home-main-content"><?php echo $breadcrumbs; ?></div>
-      <br /><br /><br /><br />
+      <br /><br />
       <?php
        $tutor = $tutor->getTutor($tutor_id);
      

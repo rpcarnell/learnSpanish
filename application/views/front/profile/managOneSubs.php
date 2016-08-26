@@ -32,8 +32,7 @@ if (!isset($recu->{'recurring-Profile-ID'}) || !is_numeric($recu->{'recurring-Pr
     <p>Length of Future Pause (days) <input type="text"  id='pause-length-days' name='pause-length-days' onChange='pauseNum()' value='<?php echo ($recu->{'pause-length-days'}) ?  ( (7777 == $recu->{'pause-length-days'}) ? 'Indefinite' : $recu->{'pause-length-days'}) : '';?>' />
     <span id='pauseWarn' style='font-size: 11px; color: #a00;'></span>
     </p>
-    
-    <?php if ( $recu->{'pause-length-days'} != 7777) { ?><br />
+   <?php if ( $recu->{'pause-length-days'} != 7777) { ?><br />
     <div style='padding-left: 0px; float: left; '><input type='button' id='pausInd' onClick='pauseIndef(this)' value='Pause Now Indefinitely' style='background: #aaa; color: #fff; padding: 10px; font-size: 12px;' /></div>
     <div style='padding-left: 5px; float: left; '>Note: After <?php echo $pauseDays;?> days, your reservation time will be released for other students to use.</div>
      <div style='clear: both;'></div>
@@ -45,13 +44,15 @@ if (!isset($recu->{'recurring-Profile-ID'}) || !is_numeric($recu->{'recurring-Pr
     <br />
     <?php } 
     ?>
-    <a href="<?php echo base_url();?>calendar/appointments?type=2&id=<?php echo $recu->{'recurring-Profile-ID'}; ?>" style='text-decoration: none; margin: 10px; margin-left: 0px; background: #aaa; color: #fff; padding: 10px; font-size: 12px;'>Edit Times on Calendar</a>
-    <div style="clear: both;"></div>
-    <br />
-    <input type='button' onClick='deletsubs()' value='Delete Subscription' style='background: #aaa; color: #fff; padding: 10px; font-size: 12px;' />
-    <div id='deletsubs' style='display: none;'><p>Are you sure? This is not reversible.<br /><a href='javascript:void(0)' onClick='deletsbYES(<?php echo $recu->{'recurring-Profile-ID'}; ?>, <?php echo $customer_ID; ?>, 1)'>Yes</a> | <a href='javascript:void(0)'  onClick='deletsbNO()'>No</a></p></div>
-            <br />
+                 
      <input type='submit' value='Save Changes' style='background: #285c98; color: #fff; padding: 10px 15px; font-size: 12px;' />
+  
+     <br /><hr /> 
+    <a href="<?php echo base_url();?>calendar/appointments?type=2&id=<?php echo $recu->{'recurring-Profile-ID'}; ?>" style='width: 180px; text-align: center; font-size: 14px;display: block; text-decoration: none; margin: 10px; margin-left: 0px; background: #aaa; color: #fff; padding: 10px; '>Edit Times on Calendar</a>
+    <div style="clear: both;"></div>
+     
+    <input type='button' onClick='deletsubs()' value='Delete Subscription' style='width: 200px; background: #aaa; color: #fff; padding: 10px; font-size: 12px;' />
+    <div id='deletsubs' style='display: none;'><p>Are you sure? This is not reversible.<br /><a href='javascript:void(0)' onClick='deletsbYES(<?php echo $recu->{'recurring-Profile-ID'}; ?>, <?php echo $customer_ID; ?>, 1)'>Yes</a> | <a href='javascript:void(0)'  onClick='deletsbNO()'>No</a></p></div>
    <input type='hidden' value='1' name='managesubscr' />
    <input type='hidden' value='<?php echo $customer_ID;?>' name='customer_ID' />
    <input type='hidden' value='<?php echo $item_ID;?>' name='item_ID' />

@@ -202,8 +202,7 @@ $type = 1;
 
 	<div id='loading'>loading...</div>
   <br />
-        <div class="home-main-content"><?php echo $breadcrumbs; ?></div><br />
-       <div class="clr"></div>
+        <div class="clr"></div>
 <?php
     if ($error) { echo "<br /><br /><div style='color: #a00; margin-top: 5px;' class='spanish-form'>".$error."</div>"; }
     ?>

@@ -2,8 +2,7 @@
 <?php echo page_restrict_manager(); 
 
 ?>
-<br /><br />
-<div class="home-main-content"><?php echo $breadcrumbs; ?></div>
+<br /> 
 <div class="spanish">
     <div class="spanish-content contact-us-content">
   
