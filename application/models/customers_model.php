@@ -24,6 +24,53 @@ class Customers_model extends CI_Model{
                 return $this->db->insert_id();
             }
       }
+
+
+// corky 8/22/16 creation
+      public function getItemsForSale( )
+      {
+          $queryStr = "SELECT * FROM itemsforsale ORDER BY item_for_sale_ID LIMIT 100";
+
+          //$queryResult = $this->db->query($queryStr); 
+          if($this->db->query($queryStr)->num_rows() > 0)
+          //if($queryResult->num_rows() > 0)
+          {
+             foreach($this->db->query($queryStr)->result() as $row) { $data[] = $row; } 
+             //foreach($queryResult as $row) { $data[] = $row; }
+          }
+          else
+          {
+              $data = $queryResult;
+          }
+          return (isset($data)) ? $data : false;          
+      }
+
+// corky 8/22/16 creation
+
+      public function getItemForSale($_searchFor=null )
+      {
+          $criteria = "";
+          if (is_int ($_searchFor)) $criteria = "WHERE item_id = $_searchFor ";
+          if (is_string ($_searchFor)) $criteria = 'WHERE name = "'.$_searchFor.'" ';  
+          $queryStr = "SELECT * FROM itemsforsale ".$criteria."ORDER BY item_for_sale_ID LIMIT 100";
+
+
+
+          $queryResult = $this->db->query($queryStr)->result();
+          return $queryResult[0];
+
+          if($this->db->query($queryStr)->num_rows() > 0)
+          {
+             foreach($this->db->query($queryStr)->result() as $row) { $data[] = $row; } 
+          }
+          else
+          {   // this is the expected normal case
+              $data = $queryResult;
+          }
+          return (isset($data)) ? $data : false;          
+      }
+
+
       public function getPurchases($id)
       {
           if (!is_numeric($id)) return;
