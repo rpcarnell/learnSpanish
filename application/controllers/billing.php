@@ -41,6 +41,7 @@ class Billing extends SP_Controller
         $customer_ID = $this->session->userdata('customerid');
         $this->load->model('Customers_model');
         $userMessage = $this->showMessage();
+        //$itemsForSale = $this->Customers_model->getItemsForSale();
         $row = $this->Customers_model->getPurchases($customer_ID);
         $globals = $this->Fn_model->getGlobals();
         $data['page_title'] = $globals->{'store-name'}.' | Billing History';
@@ -57,7 +58,8 @@ class Billing extends SP_Controller
         $data['breadcrumbs'] = $breadcrumbs;
         $data['userMessage'] = $userMessage;
         $data['order'] = (isset($_GET['order']) && is_numeric($_GET['order']) && $_GET['order'] < 2) ? $_GET['order'] : 0; 
-        $data['main_content'] = 'front/billhistr';   // somehow this calls billhistr.php  - corky
+        $data['main_content'] = 'front/billhistr';   // somehow this calls (includes?) billhistr.php  - corky
+        $data['itemsForSale'] = $itemsForSale;
         $this->load->view('front/includes/main_view', $data);
     }
 
