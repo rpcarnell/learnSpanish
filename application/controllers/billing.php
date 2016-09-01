@@ -59,7 +59,7 @@ class Billing extends SP_Controller
         $data['userMessage'] = $userMessage;
         $data['order'] = (isset($_GET['order']) && is_numeric($_GET['order']) && $_GET['order'] < 2) ? $_GET['order'] : 0; 
         $data['main_content'] = 'front/billhistr';   // somehow this calls (includes?) billhistr.php  - corky
-        $data['itemsForSale'] = $itemsForSale;
+        //$data['itemsForSale'] = $itemsForSale;
         $this->load->view('front/includes/main_view', $data);
     }
 
@@ -223,7 +223,7 @@ class Billing extends SP_Controller
          if (!is_numeric($id)) { echo "ERROR - invalid ID"; exit; }
         $this->Fn_model->ch_login();
         $customer_ID = $this->session->userdata('customerid');
-        if ($customer_ID != $id) { echo "ERROR - invalid ID"; exit; }
+//        if ($customer_ID != $id) { echo "ERROR - invalid ID"; exit; }
          $this->load->library('breadcrumbs');
         $this->breadcrumbs->push('Tutors', '/tutors?purchase=3');
         $this->breadcrumbs->push('Non-Booked Item', 'billing/custom/'.$customer_ID);
