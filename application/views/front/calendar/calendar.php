@@ -136,7 +136,13 @@
                                   {   
                                       jQuery('#popwar_2').html(msg[1]).css({'color' : '#a00'});
                                       fullCalendar.fullCalendar( 'refetchEvents' );
-                                  } else { jQuery('#popwar_2').html(msg[1]).css({'color' : '#0a0'});  }
+                                  } else 
+                                  { 
+									  
+									  if (localStorage.getItem('appendInstead') == 0) { jQuery('#popwar_2').html(msg[1]).css({'color' : '#0a0'}); }
+									  else { /*jQuery('#popwar_2').prepend(msg[1]).css({'color' : '#0a0'}); */} 
+									  localStorage.setItem('appendInstead', 0);  
+							      }
                              }
                          });
                         request.fail(function(jqXHR, textStatus){ alert('ERROR');
@@ -159,7 +165,12 @@ $(document).ready(function() {
          var unixStart = Math.floor(Date.parse( event.start.format() ) / 1000 );
          var unixEnd = Math.floor(Date.parse( event.end.format() ) / 1000 );
          var duration = Math.floor(( unixEnd - unixStart) / 60 );
-         if (duration > 55) duration = 55;
+         if (duration > 55) 
+         {
+			 duration = 55;
+			 localStorage.setItem('appendInstead', 1);
+			  jQuery('#popwar_2').html(" <span style='color: #a00;'>Duration cannot be more than 55 minutes.</span>");
+		 }
          var type = <?php echo $type;?>;
          var url = "<?php echo base_url('calendar/dragAppoint') ?>";
          submitAppoinChange(event, view, jsEvent, duration, url, type);

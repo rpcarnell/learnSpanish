@@ -15,6 +15,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <title><?php echo $page_title ?></title>
+    <title><?php echo 'TEST' ?></title>
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>css/style.css"/>
 
@@ -27,9 +28,16 @@
    <!-- <script type="text/javascript" src="<?php echo base_url() ?>js_front/custom.js"></script>-->
 
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-  <script type="text/javascript" src="/js_front/tp/jquery.ui.timepicker.js?v=0.3.1"></script>
+  <script type="text/javascript" src="<?php echo base_url() ?>js_front/tp/jquery.ui.timepicker.js?v=0.3.1"></script>
 
     <!-- surebet-->
+
+    <!-- to support locally sortable tables - corky 8/27/16  -->
+    <script src="<?php echo base_url() ?>js_front/sorttable.js"></script>
+    <?php 
+    //echo "<br>=====================================================================================<br><b>"; 
+    //sleep(5); 
+    ?>
 
 </head>
 
