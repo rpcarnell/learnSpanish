@@ -159,15 +159,16 @@
               $this->email->message($content);
               $this->email->send();
         }
+        /*
  	function getNow(){
 		$t = strftime("%M,%H,%d,%m,%w,%Y", time()); //Get the values for now in a format we can use
 		$this->now = explode(",", $t); //Make this an array
 	 }
- 	
+ 	/*
  	function getLastRan(){
  		return explode(",", strftime("%M,%H,%d,%m,%w,%Y", $this->lastRan)); //Get the values for now in a format we can use	
  	}
- 	
+ 	/*
  	function getDebug(){
  		return $this->debug;	
  	}
@@ -186,7 +187,7 @@
 		
 	} 	
  	
-
+/*
 	function getExtremeMonth($extreme){
 
 		if ($extreme == "END"){
@@ -218,11 +219,11 @@
 		
 		return mktime((int)$hour, (int)$minute, 0, (int)$month, (int)$day, (int)$year);
 	}
-	
+	*/
 	/**
 	 * Assumes that value is not *, and creates an array of valid numbers that 
 	 * the string represents.  Returns an array.
-	 */
+	 *//*
 	function expand_ranges($str){
 		//$this->debug("Expanding $str");
 		if (strstr($str,  ",")){
@@ -256,7 +257,7 @@
 	/**
 	 * Given a string representation of a set of weekdays, returns an array of
 	 * possible dates.
-	 */
+	 *//*
 	function getWeekDays($str, $month, $year){
 		$daysInMonth = $this->daysinmonth($month, $year);
 		
@@ -301,7 +302,7 @@
 		
 		return $ret;		
 	}
-	
+	 
  	function daysinmonth($month, $year){
        if(checkdate($month, 31, $year)) return 31;
        if(checkdate($month, 30, $year)) return 30;
@@ -313,7 +314,7 @@
    /**
     * Get the timestamp of the last ran time.
     */
-   function calcLastRan(){
+   /*function calcLastRan(){
 		$now = time();
 
 		if ($now < $this->getExtremeMonth("START")){
@@ -485,7 +486,7 @@
 		//$this->debug("$extreme day is $day");
 		return $day;
    }
-     
+    /* 
    function getDaysArray($month){
    		$this->debug("Getting days for $month");
    		$days = array();
@@ -510,7 +511,7 @@
    			
    		return $days;
    }
-   
+  /* 
    function getExtremeHour($extreme){
    		if ($this->bits[1] == "*"){
 			if ($extreme == "END"){
@@ -529,8 +530,8 @@
 		}
 		//$this->debug("$extreme hour is $hour");
 		return $hour;
-   }
-   
+   }*/
+  /* 
    function getExtremeMinute($extreme){
 		if ($this->bits[0] == "*"){
 			if ($extreme == "END"){
@@ -550,6 +551,6 @@
 		//$this->debug("$extreme minute is $minute");
 		return $minute;
    }
-
+*/
  }
 ?>
