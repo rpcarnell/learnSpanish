@@ -242,15 +242,11 @@ class Billing extends SP_Controller
         $error = false;
         if ($_POST && isset($_POST['minutesperweek']))
         {
-           /* if (trim($_POST['date']) == '') { $error = 'Date is missing';  }
-            else*/
             if (trim($_POST['minutesperweek']) == '') { $error = 'How Many Minutes per Week?';  }
-            //if (trim($_POST['numberofmonths']) == '') { $error = 'Number of months is missing';  }
             $this->load->model('Customers_model');
             if ($error === false)
             {
-		//$this->Customers_model->Inventory();
-                $id = $this->Customers_model->RecurringProfiles();
+		$id = $this->Customers_model->RecurringProfiles();
                 if (is_numeric($id) && $id > 0)
                 { echo "<script>window.location='".base_url()."billing/payment?id=$id&item_id=2'</script>"; }
                 else echo "<script>alert('There was an error submitting your data');</script>";
@@ -263,7 +259,7 @@ class Billing extends SP_Controller
         $this->load->library('breadcrumbs');
         $this->breadcrumbs->push('Tutors', '/tutors?purchase=2');
         $this->breadcrumbs->push('Buy Recurring Time', 'billing/recurring/'.$customer_ID);
-        
+                
         $this->breadcrumbs->unshift('Profile', base_url()."profile");
         $this->breadcrumbs->unshift('Home', base_url());
         $breadcrumbs = $this->breadcrumbs->show();
