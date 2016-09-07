@@ -6,5 +6,5 @@ $config['braintree_public_key'] = '';
 $config['braintree_private_key'] = '';
 $config['braintree_environment'] = '';
 */
-$config['costPerHour'] = 6.42; 
+$config['costPerHour'] = 4.34; 
 
