@@ -1,5 +1,7 @@
 <?php
- 
+//$CI = &get_instance();
+//$CI->config->load('braintree', TRUE);
+//$costPerHour = $CI->config->item('costPerHour');
 if (!isset($recu->{'recurring-Profile-ID'}) || !is_numeric($recu->{'recurring-Profile-ID'} ) ) { echo "Data is not available"; exit; }
 ?><div class="spanish">
     <div class="spanish-content profile">
@@ -9,12 +11,15 @@ if (!isset($recu->{'recurring-Profile-ID'}) || !is_numeric($recu->{'recurring-Pr
         {
             echo "<span style='color: #0a0;'>$msg</span>";
         }
+       
         ?>
         <br />
-        <form method="POST">
+        <form method="POST" onSubmit="return examinSubs()">
 <div style="margin-top: 10px;">
-    <p>Minutes per Week  <input type="text" name='minutes-per-week' style='width: 70px;' value='<?php echo $recu->{'minutes-per-week'};?>' />  -  Monthly Cost is: $###</p>
-    <p>Length in Months  <input type="text" name='lenghts-months' style='width: 70px;' value='<?php echo ( $recu->{'lenghts-months'} == 7777 ) ? 0 : $recu->{'lenghts-months'};?>' />  -  Number of months, including this month, to continue billing. 0 = infinity.</p>
+    <p>Minutes per Week  <input type="text" name='minutes-per-week' id="minutesperweek" style='width: 70px;' value='<?php echo $recu->{'minutes-per-week'};?>' />  -  Monthly Cost is: $<span id="monthlyCost"></span></p>
+    <div style="display: none; color: #a00;" id="minutesperWarn"></div>
+    <p>Length in Months  <input type="text" name='lenghts-months' id="lenghtsmonths" style='width: 70px;' value='<?php echo ( $recu->{'lenghts-months'} == 7777 ) ? 0 : $recu->{'lenghts-months'};?>' />  -  Number of months, including this month, to continue billing. 0 = infinity.</p>
+      <div style="display: none; color: #a00;" id="lenghtsmonthsWarn"></div>
     <br />
     <?php
     if ($recu->{'pause-start-date'} == '0000-00-00 00:00:00') { $recu->{'pause-start-date'} = ''; }
@@ -63,9 +68,54 @@ if (!isset($recu->{'recurring-Profile-ID'}) || !is_numeric($recu->{'recurring-Pr
     </div></div>
 
 <script>
-    $(function() {
-    jQuery( "#datepicker" ).datepicker();
-});
+    $(function() 
+    {
+         costPerMin( <?php echo $recu->{'minutes-per-week'}; ?>);
+        jQuery( "#datepicker" ).datepicker();
+        jQuery('#minutesperweek').on('blur', function() 
+        { 
+            var minweek = jQuery(this).val();
+            if (isNaN(minweek)) { jQuery('#minutesperWarn').fadeIn().html('ERROR - not a number'); }
+            else 
+            { 
+                jQuery('#minutesperWarn').fadeOut(); 
+                costPerMin(minweek); 
+            }
+        });
+        jQuery('#lenghtsmonths').on('blur', function() 
+        { 
+            var lengthsweek = jQuery(this).val();
+            if (isNaN(lengthsweek)) { jQuery('#lenghtsmonthsWarn').fadeIn().html('ERROR - not a number'); }
+            else { jQuery('#lenghtsmonthsWarn').fadeOut(); }
+        });
+       
+    });
+function examinSubs()
+{
+    var minweek = jQuery('#minutesperweek').val();
+    var lengthsweek = jQuery('#lenghtsmonths').val();
+    var formValid = true;
+    if (isNaN(minweek)) { 
+        formValid = false; 
+        jQuery('#minutesperWarn').fadeIn().html('ERROR - not a number'); }
+    if (isNaN(lengthsweek)) { 
+        formValid = false; 
+        jQuery('#lenghtsmonthsWarn').fadeIn().html('ERROR - not a number'); }
+    return (formValid) ? true : false;    
+}
+function costPerMin(minutesperWeek)
+{
+    if (isNaN(minutesperWeek)) return;
+     jQuery.post('<?php echo base_url(); ?>billing/getRecurringPrice', {quant: minutesperWeek}, 
+     function(data) { if (! isNaN(data)) { 
+         //var cosPerHour = (60 * data);
+         //jQuery('#costperhour').html("$" +cosPerHour.toFixed(2)+ "");
+         var cosPerMonth = data *  minutesperWeek;//minutesperWeek * (data) * 4.35;
+         jQuery('#monthlyCost').html("" + cosPerMonth.toFixed(2)+ "");
+        //jQuery('#costpermonth_val').val( cosPerMonth.toFixed(2) ); 
+     }
+    } );
+}    
 function pauseNum()
 {
     var pauseTime = jQuery('#pause-length-days').val();
