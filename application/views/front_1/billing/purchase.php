@@ -1,6 +1,7 @@
 <div class="spanish">
 <div class="spanish-content profile">
-           <br />
+          <div class="home-main-content"><?php echo $breadcrumbs; ?></div><br />
+       <br />  <br />
         <div>
            
             <ul>
