@@ -198,12 +198,14 @@ class Customers_model extends CI_Model{
           $query = "SELECT * FROM `Customers-RecurringProfiles` WHERE `customer-ID` = $customer_id AND `recurring-Profile-ID` = $inven_id LIMIT 1";
           $result = $this->db->query($query)->result();
           if (!$result) return false;
+         
           $minutesPerWeek = (int)$result[0]->{'minutes-per-week'}; 
           $where = "WHERE type = 2 AND customer_ID = $customer_id";
           $queryStr = "SELECT * FROM `calendarEntries` $where LIMIT 50";
-          $minutesUsed = 0;
-          if($this->db->query($queryStr)->num_rows() > 0) { foreach($this->db->query($queryStr)->result() as $row) {  $minutesUsed += $row->duration; } }
-          $remaining = $minutesPerWeek - $minutesUsed;
+          
+          $minutesUsed = $this->getRecurringUsed($inven_id);
+          //if($this->db->query($queryStr)->num_rows() > 0) { foreach($this->db->query($queryStr)->result() as $row) {  $minutesUsed += $row->duration; } }
+          $remaining = $minutesPerWeek - (int)$minutesUsed;
           return ($remaining < 0) ? 0 : $remaining;
       }
       public function getFlexData($inven_id, $customer_id = false)
