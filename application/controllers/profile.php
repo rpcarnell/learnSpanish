@@ -55,6 +55,7 @@ class Profile extends SP_Controller {
         $customer_ID = $this->session->userdata('customerid');
         $rows = $this->Customers_model->getUserRecurrings($customer_ID);
         $data['recurring'] = $rows;
+        $data['customer_ID'] = $customer_ID;
         $data['Customers_model'] = $this->Customers_model;
          $this->load->model('Tutors_model');
         $data['tutor_model'] = $this->Tutors_model;
