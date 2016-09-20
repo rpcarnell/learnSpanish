@@ -70,6 +70,10 @@
                              success: function(msg){    
                                  fullCalendar.fullCalendar( 'refetchEvents' );//put it here, so that a JSON error won't affect this line
                                   msg = JSON.parse(msg);
+                                   if (!isNaN(msg[3]))
+                                  {
+                                     jQuery('#minReman').html(msg[3]); 
+                                  }
                                   var $css;
                                   if (msg[0] == 0)
                                   { $css = '#a00';  }  
@@ -105,7 +109,10 @@
                              success: function(msg){ console.log(msg);  
                                  fullCalendar.fullCalendar( 'refetchEvents' );//put it here, so that a JSON error won't affect this line
                                   msg = JSON.parse(msg);
-                                  
+                                  if (!isNaN(msg[3]))
+                                  {
+                                     jQuery('#minReman').html(msg[3]); 
+                                  }
                                   if (msg[0] == 0)
                                   {  
                                       jQuery('#popwarn').html(msg[1]);
