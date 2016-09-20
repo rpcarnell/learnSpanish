@@ -198,6 +198,17 @@ class Calendar extends SP_Controller
              }
         }
         $this->Calendar_model->delCalRow($cal_id);
+        $this->load->model('Customers_model');
+        if ($cal->type == 2)
+        {
+                    $rem = $this->Customers_model->recurRemain($cal->inven_id, $_POST['customer_id']);
+                    $msg[3] = $rem;
+        }
+        elseif ($cal->type == 1)
+        {
+                    $rem = $this->Customers_model->flexRemain($cal->inven_id, $_POST['customer_id']);
+                    $msg[3] = $rem;
+        } 
         if ($error === false) 
         { 
            $msg[0] = 1;
@@ -233,20 +244,21 @@ class Calendar extends SP_Controller
         if ($type == 2) 
         {
             $recurring = $this->Customers_model->getRecurringProfile($id);
-        if (! $recurring) { echo "ERROR - recurring profile is invalid. Exiting"; exit; }
+            if (! $recurring) { echo "ERROR - recurring profile is invalid. Exiting"; exit; }
             $entry = $this->Customers_model->getCalendarEntry($customer_ID, $recurring->{'tutor-ID'}, 1);
+            ///print_r($entry);
             if ($entry)
             { 
-                $recurntry = $this->Customers_model->getRecurring($entry->inven_id);
-                $onlyhave = (int)$recurntry->{'minutes-per-week'} - $this->Customers_model->getRecurringUsed($entry->inven_id);
+                $recurntry = $this->Customers_model->getRecurring($id);
+                $onlyhave = (int)$recurntry->{'minutes-per-week'} - (int)$this->Customers_model->getRecurringUsed($id);
                 $tutor = $this->Tutors_model->getTutor($entry->tutor_ID);
                 $msg = '';
                 $msg .= "<img src='".base_url()."uploads/tutors/".$tutor->photo."' style='float: left; margin: 5px; height: 85px; max-width: 150px; border-radius: 10px;' />";
 		
-                $msg .= "<p><b>Minutes per week:</b> ".$recurring->{'minutes-per-week'}."</p>";
+                $msg .= "<p><b>Minutes per week:</b> ".$recurntry->{'minutes-per-week'}."</p>";
                 $msg .= "<p><b>Type:</b> Recurring Appointment</p>";
                 $msg .= "<p><b>Tutor:</b> ".$tutor->name."</p>";
-                $msg .= "<p>You have ".$onlyhave." minutes available</p>";
+                $msg .= "<p>You have <span id='minReman'>".$onlyhave."</span> minutes available</p>";
             }
         }
         elseif ($type == 1)
@@ -260,7 +272,7 @@ class Calendar extends SP_Controller
                 $msg .= "<img src='".base_url()."uploads/tutors/".$tutor->photo."' style='float: left; margin: 5px; height: 85px; max-width: 150px;' />";
 		$msg .= "<p><b>Type:</b> Flex Time Appointment</p>";
                 $msg .= "<p><b>Tutor:</b> ".$tutor->name."</p>";
-                $msg .="<p>".$entry->FlexTime." minutes of Flex Time appointment available.</p>";
+                $msg .="<p><span id='minReman'>".$entry->FlexTime."</span> minutes of Flex Time appointment available.</p>";
             }
          }
         $data['type'] = $type;
@@ -642,10 +654,20 @@ class Calendar extends SP_Controller
         { $this->Calendar_model->recurCalChange($auth, $apoinChange, $tutor_id, $customer_id, $fromRecurring, $type, $inven_id, $cal_id, $title, $details, $chosenDat, $unixTime, $day, $duration); }
         else //let's deal with a Flextime appointment 
         {  $this->Calendar_model->flexCalChange($auth, $apoinChange, $row, $tutor_id, $customer_id, $inven_id, $cal_id, $duration, $type, $title,  $details, $chosenDat, $unixTime, $day, $fromRecurring); }
-        $msg[0] = 1;
-                    $msg[1] = "Your new appointment has been successfully created";
-                    echo json_encode($msg);
-                    return;
+              $msg[0] = 1;
+              $msg[1] = "Your new appointment has been successfully created";
+              if ($type == 2)
+              {
+                    $rem = $this->Customers_model->recurRemain($inven_id, $customer_id);
+                    $msg[3] = $rem;
+              }
+              else
+              {
+                    $rem = $this->Customers_model->flexRemain($inven_id, $customer_id);
+                    $msg[3] = $rem;
+              }    
+              echo json_encode($msg);
+              return;
      }
      
 }
