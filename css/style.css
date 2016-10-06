@@ -2426,3 +2426,13 @@ a.tutorbutton
 {
      background: #fff;
 }
+
+.alreadyPurch
+{
+    margin-top: 10px; background: #fff; border-radius: 5px; border: 1px solid #aaa; margin-left: 300px; padding: 5px;
+}
+
+.teacherLPic
+{
+     float: left; margin: 5px; height: 150px; max-width: 150px;
+}
