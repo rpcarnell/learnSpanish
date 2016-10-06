@@ -18,7 +18,7 @@ if (isset($tutor))
 		echo "<div class='teacher-box' style='width: 100%; height: 200px;'>";
                 echo "<img class='tutorpic' src='".base_url()."uploads/tutors/".$tutor->photo."' style='float: left; margin: 5px; height: 150px; max-width: 150px; ' />";
 		echo "<div><p>Teacher Name: <b>".ucwords($tutor->name)."</b></p></div>";
-		echo "<div><p>".nl2br(substr($tutor->bio, 0,300))."...</p></div>";
+		echo "<div><p>".nl2br(substr($tutor->bio, 0,200))."...</p></div>";
                 echo "<div style='clear: both;'></div>";
 		echo "</div>";
 	 echo "<div style='clear: left; margin-bottom: 0px;'></div>";
